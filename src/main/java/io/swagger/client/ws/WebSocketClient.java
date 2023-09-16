@@ -6,8 +6,7 @@ import java.net.URI;
 
 public class WebSocketClient {
     public static void main(String[] args) {
-        String serverUri = "ws://example.com/websocket"; // Sostituisci con l'URL del server WebSocket a cui desideri connetterti
-        serverUri = "ws://app.3utilities.com:8080/messaggi-websocket";
+        String serverUri = "ws://app.3utilities.com:8080/messaggi-websocket";
         
         WebSocketContainer container = ContainerProvider.getWebSocketContainer();
         
@@ -17,7 +16,9 @@ public class WebSocketClient {
             int i=0;
             while(i<1) {
                 // Puoi ora utilizzare la sessione WebSocket per inviare e ricevere dati
-                session.getBasicRemote().sendText("{operazione: \"ping\", nomegiocatore: \"dante\", idgiocatore: \"2\"}");
+                String messaggio = "{\"operazione\": \"ping\", \"nomegiocatore\": \"daniele\", \"idgiocatore\": \"2\"}";
+                messaggio = "{operazione\": \"ping\", \"nomegiocatore\": \"daniele\", \"idgiocatore\": \"2\"}";
+				session.getBasicRemote().sendText(messaggio);
                 Thread.currentThread().sleep(2000);
             }
             
